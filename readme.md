@@ -45,3 +45,7 @@
     > 255_tid_max_num = 10
   > 
     > 每次最大获取的帖子数, 限制低于25
++ 255_if_show_avatar
+  > 255_if_show_avatar = True
+  > 
+  > 是否显示发帖者头像 

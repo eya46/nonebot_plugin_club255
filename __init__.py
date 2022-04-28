@@ -12,6 +12,7 @@ friends_push_list: List = getattr(get_driver().config, "255_push_friends", [])
 groups_push_list: List = getattr(get_driver().config, "255_push_groups", [])
 push_minutes: int = int(getattr(get_driver().config, "255_push_minutes", 10))
 push_bot: Union[str, int] = getattr(get_driver().config, "255_push_bot", 0)
+if_show_avatar: bool = getattr(get_driver().config, "255_if_show_avatar", True)
 # picture_max: int = 0 if (_p_m := int(getattr(get_driver().config, "255_pictures_max", 4))) < 0 else _p_m
 picture_max: int = int(getattr(get_driver().config, "255_pictures_max", 4))
 
@@ -53,8 +54,7 @@ async def auto_255_post():
             user: Dict = i["author"]
             msg = Message()
             msg.append(MessageSegment.text("毛怪俱乐部新帖:\n"))
-            # 不显示头像请注释下面两行
-            if user.get("avatar") is not None:
+            if user.get("avatar") is not None and if_show_avatar:
                 msg.append(MessageSegment.image(file=user.get("avatar")))
             msg.append(MessageSegment.text(
                 f"昵称:{user.get('nickname')}\n"
@@ -67,9 +67,11 @@ async def auto_255_post():
             # 显示帖子图片。不想显示图片请注释下面两行
             for j in i.get("pictures", [])[:picture_max]:
                 msg.append(MessageSegment.image(file=j))
+            msgs.append(msg)
 
     for m in msgs:
         for g in groups_push_list:
+            logger.debug(f"255新帖，开始推送群聊:{g}")
             try:
                 await bot.send_group_msg(group_id=int(g), message=m)
             except Exception as e:
@@ -79,6 +81,7 @@ async def auto_255_post():
                     logger.error(f"255新帖，推送失败:群号 -> {g},未知错误 -> {e}")
 
         for f in friends_push_list:
+            logger.debug(f"255新帖，开始推送QQ:{f}")
             try:
                 await bot.send_private_msg(user_id=int(f), message=m)
             except Exception as e:
