@@ -4,6 +4,7 @@
 
 + nonebot2
 + nonebot-plugin-apscheduler
++ nonebot-adapter-onebot
 + httpx
 
 
