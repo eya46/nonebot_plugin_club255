@@ -29,15 +29,10 @@ async def auto_255_post():
     list_255 = await get_255_list()
 
     # 获取bot
-    bot: Optional[Bot] = None
     if push_bot != 0:
         bot = get_bot(str(push_bot))
     else:
-        bots = get_bots()
-        for i in bots.items():
-            if isinstance(i[1], Bot):
-                bot = i[1]
-                break
+        bot = get_bot()
 
     if bot is None:
         logger.error("255新帖，推送失败:没有已连接的机器人！")
