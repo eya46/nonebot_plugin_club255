@@ -9,7 +9,8 @@ account_255: str = getattr(get_driver().config, "255_account", "")
 # 255密码
 password_255: str = getattr(get_driver().config, "255_password", "")
 # 255的网址，https://???????.com/
-url: str = getattr(get_driver().config, "255_url", "")
+# url: str = getattr(get_driver().config, "255_url", "")
+url: str = "https://2550505.com/"
 # 单次最大获取的帖子数, 限制小于25
 tid_max_num = min(int(getattr(get_driver().config, "255_tid_max_num", 10)), 25)
 

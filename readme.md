@@ -1,4 +1,4 @@
-# 自动推送255帖子
+# 自动推送毛怪俱乐部帖子
 
 ## 环境
 
@@ -10,10 +10,6 @@
 
 ## 配置
 ### 必填
-+ 255_url
-  > 255_url = "https://???????.com/"
-  >
-  > 某255俱乐部的网址，最后的 / 必须要有
 + apscheduler_autostart
   > apscheduler_autostart=True
   > 

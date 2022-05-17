@@ -16,7 +16,8 @@ if_show_avatar: bool = getattr(get_driver().config, "255_if_show_avatar", True)
 # picture_max: int = 0 if (_p_m := int(getattr(get_driver().config, "255_pictures_max", 4))) < 0 else _p_m
 picture_max: int = int(getattr(get_driver().config, "255_pictures_max", 4))
 
-url: str = getattr(get_driver().config, "255_url", "")
+# url: str = getattr(get_driver().config, "255_url", "")
+url: str = "https://2550505.com/"
 
 
 @scheduler.scheduled_job("interval", minutes=push_minutes, timezone='Asia/Shanghai')
