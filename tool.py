@@ -53,7 +53,7 @@ async def get_cookie(_cookie=None):
             _res = await r.post(
                 f"{url}auth/login",
                 headers={"User-Agent": User_Agent},
-                json={"account": account_255, "password": account_255}
+                json={"account": account_255, "password": password_255}
             )
             if _res.status_code != 200:
                 return None
