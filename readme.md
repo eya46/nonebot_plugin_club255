@@ -45,7 +45,14 @@
   > 255_if_show_avatar = True
   > 
   > 是否显示发帖者头像 
-
++ 255_if_merge_msg
+  > 255_if_merge_msg = True
+  > 
+  > 是否合并消息
++ 255_merge_msg_num
+  > 255_merge_msg_num = 3
+  > 
+  > 几条以上的新帖会合并
 
 ## 待更新
 > 发帖用户信息中
