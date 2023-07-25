@@ -1,0 +1,31 @@
+{
+  "extends": "xo/browser",
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "plugins": [
+    "vue"
+  ],
+  "rules": {
+    "indent": [
+      "error",
+      "tab"
+    ],
+    "quotes": [
+      "error",
+      "double"
+    ],
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ],
+    "max-lines": [
+      "error",
+      120
+    ],
+    "arrow-body-style": [
+      "error", "never"
+    ]
+  }
+}
