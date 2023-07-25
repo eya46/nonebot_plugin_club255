@@ -1,0 +1,30 @@
+{% extends "base.html.jinja2" %}
+{% block title %}排行榜{% endblock %}
+{% block content %}
+    <div class="flex justify-items-stretch mb-4">
+        <div class="basis-1/2">用户贡献榜</div>
+        <div class="basis-1/2">页数: {{ page }}</div>
+        <div class="basis-1/4 flex space-x-1">
+            <div {% if if_week %}style="color: #fb923c" {% endif %}>周</div>
+            <div>/</div>
+            <div {% if not if_week %}style="color: #fb923c" {% endif %}>月</div>
+        </div>
+    </div>
+    <div class="flex flex-col space-y-4">
+    {% for rank in ranks %}
+        <div class="flex flex-nowrap items-center space-x-4">
+            <div class="text-second w-5">{{ rank.rank }}</div>
+            <div class="flex flex-row space-x-2">
+{#                <div class="rounded-full w-12 h-12 bg-cover bg-[url({{ rank.avatar }})]">#}
+{#                    <img class="w-12 h-12 absolute scale-125" src="{{ pic("avatar-2023.png") }}" alt="挂件"/>#}
+{#                </div>#}
+                <img class="w-12 h-12 rounded-full" src="{{ rank.avatar or pic("default.png") }}" alt="挂件"/>
+                <div>
+                    <div class="w-30 text-default">{{rank.nickname}}[{{rank.uid}}]</div>
+                    <div class="text-second">贡献值 {{ rank.contribution }}</div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

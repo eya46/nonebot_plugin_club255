@@ -1,0 +1,32 @@
+[tool.ruff]
+select = ["E", "W", "F", "UP", "C", "T", "PYI", "PT", "Q"]
+ignore = ["E402", "C901"]
+
+line-length = 120
+target-version = "py38"
+
+[tool.poetry]
+name = "nonebot-plugin-club255"
+version = "0.1.0"
+description = "毛怪俱乐部插件"
+authors = ["eya46 <admin@eya46.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{ include = "nonebot_plugin_club255" }]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+nonebot2 = {version = ">=2.0.1", extras = ["httpx"]}
+pydantic = "~=1.10.9"
+jinja2 = "~=3.1.2"
+nonebot-plugin-apscheduler = "^0.3.0"
+nonebot-plugin-htmlrender = "^0.2.1"
+nonebot-plugin-send-anything-anywhere = "^0.2.7"
+nonebot-plugin-userinfo = "^0.0.1"
+nonebot-plugin-datastore = "^1.0.0"
+nonebot-plugin-params = "^0.1.1"
+nonebot-adapter-onebot = "^2.2.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
